@@ -39,6 +39,9 @@ function Home() {
                                     {item.Description}
                                 </p>
                                 <p>
+                                    {item.Description}
+                                </p>
+                                <p>
                                     <a href={"/article/" + item.id}>Learn more</a>
                                 </p>
                             </Jumbotron>
