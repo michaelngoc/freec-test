@@ -1,0 +1,276 @@
+$white: #fff;
+$black: #000;
+$black1: #1A1A1A;
+$black2: #6E6E6E;
+$black3:#242424;
+$primary: #FF7F26;
+$primary-text: #FC7D24;
+$second:#00A3E8;
+$third: #CD181F;
+
+@mixin flexwrap {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@mixin flexcol {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin resetlist {
+    list-style: none;
+    padding: 0;
+}
+
+@mixin fonticon($fw, $fs) {
+    font-family: 'Font Awesome 5 Pro';
+    font-weight: $fw;
+    font-size: $fs;
+}
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content
+    }
+
+    &:-moz-placeholder {
+        @content
+    }
+
+    &::-moz-placeholder {
+        @content
+    }
+
+    &:-ms-input-placeholder {
+        @content
+    }
+}
+
+@mixin placeholderfocus {
+    &:focus::-webkit-input-placeholder {
+        @content
+    }
+
+    &:focus:-moz-placeholder {
+        @content
+    }
+
+    &:focus::-moz-placeholder {
+        @content
+    }
+
+    &:focus:-ms-input-placeholder {
+        @content
+    }
+}
+
+@mixin transition($s) {
+    -webkit-transition: all $s ease;
+    -moz-transition: all $s ease;
+    -o-transition: all $s ease;
+    -ms-transition: all $s ease;
+    transition: all $s ease;
+}
+
+@mixin scale($x, $y) {
+    -webkit-transform: scale($x, $y);
+    -moz-transform: scale($x, $y);
+    -o-transform: scale($x, $y);
+    -ms-transform: scale($x, $y);
+    transform: scale($x, $y);
+}
+
+@mixin border-radius($r) {
+    -webkit-border-radius: $r;
+    -moz-border-radius: $r;
+    -o-border-radius: $r;
+    -ms-border-radius: $r;
+    border-radius: $r;
+}
+
+@mixin widthflex($w) {
+    -ms-flex: 0 0 $w;
+    flex: 0 0 $w;
+    max-width: $w;
+}
+
+@mixin maxmedia($point) {
+    @media screen and (max-width: $point) {
+        @content;
+    }
+}
+
+@mixin minmedia($point) {
+    @media screen and (min-width: $point) {
+        @content;
+    }
+}
+
+@mixin maxminmedia($pointMax, $pointMin) {
+    @media screen and (max-width: $pointMax) and (min-width: $pointMin) {
+        @content;
+    }
+}
+
+@mixin paddingcol($pd) {
+    margin-left: -$pd !important;
+    margin-right: -$pd !important;
+
+    >.sp-col {
+        padding-left: $pd !important;
+        padding-right: $pd !important;
+    }
+}
+
+@mixin lgpaddingcol($pd) {
+    margin-left: -$pd !important;
+    margin-right: -$pd !important;
+
+    >.sp-col {
+        padding-left: $pd !important;
+        padding-right: $pd !important;
+    }
+
+    @include maxmedia (1199px) {
+        margin-left: -15px !important;
+        margin-right: -15px !important;
+
+        >.sp-col {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+    }
+}
+
+@mixin blockcol() {
+    display: block;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
+    >.sp-col {
+        display: block;
+        float: none;
+        flex: none;
+        max-width: none;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: auto !important;
+    }
+}
+
+@mixin flex-middle {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+@mixin flex-center {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+@mixin flex-between {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+@mixin position-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+@mixin scale($x, $y) {
+    -webkit-transform: scale($x, $y);
+    -moz-transform: scale($x, $y);
+    -o-transform: scale($x, $y);
+    -ms-transform: scale($x, $y);
+    transform: scale($x, $y);
+}
+
+@mixin translate($x, $y) {
+    -webkit-transform: translate($x, $y);
+    -moz-transform: translate($x, $y);
+    -o-transform: translate($x, $y);
+    -ms-transform: translate($x, $y);
+    transform: translate($x, $y);
+}
+
+@mixin transform($value) {
+    -webkit-transform: $value;
+    -moz-transform: $value;
+    -o-transform: $value;
+    -ms-transform: $value;
+    transform: $value;
+}
+
+@mixin hidden-text($rows) {
+    display: -webkit-box;
+    -webkit-line-clamp: $rows;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin animation($value) {
+    -webkit-animation: $value;
+    -moz-animation: $value;
+    -o-animation: $value;
+    animation: $value;
+}
+
+@mixin circle($w) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    border-radius: 50%;
+    width: $w;
+    height: $w;
+}
