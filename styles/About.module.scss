@@ -1,0 +1,29 @@
+@import './varible.scss';
+.about{
+    &Content{
+        padding-right:50px;
+        @include maxmedia(991px) {
+            padding-right: 0;
+            padding-bottom:50px
+        }
+        &Title{
+            margin: 0 0 30px;
+        }
+    }
+    &CoreValue{
+        &Title{
+            margin: 0 0 30px;
+        }
+        &Item{
+            margin-bottom:30px;
+            text-align: center;
+            &Title{
+                margin:30px 0 15px;
+            }
+            svg{
+                height:50px;
+                color:$primary;
+            }
+        }
+    }
+}

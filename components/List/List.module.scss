@@ -1,0 +1,56 @@
+@import '../../styles/varible.scss';
+.list {
+    &Ft {
+        padding-left: 0;
+        list-style-type: none;
+        margin-bottom: 30px;
+
+        @include maxmedia(767px) {
+            margin-bottom: 15px;
+        }
+
+        &.column-2 {
+            column-count: 2;
+
+            @include maxmedia(420px) {
+                column-count: 1;
+            }
+        }
+
+        li {
+            font-size: 14px;
+            line-height: 30px;
+            margin: 0 0 5px;
+            white-space: nowrap;
+
+            a {
+                color: #BCBCBC !important;
+
+                &:hover {
+                    color: $primary !important;
+                }
+
+                &.socialIcon {
+                    position: relative;
+                    padding-left: 30px;
+
+                    i,svg {
+                        position: absolute;
+                        top: 2px;
+                        left: 0;
+                        color: $second;
+                        max-width:15px;
+                        max-height: 13px;
+                    }
+                }
+            }
+        }
+
+        .active {
+            a {
+                color: $primary !important;
+                font-weight: 700;
+            }
+        }
+    }
+}

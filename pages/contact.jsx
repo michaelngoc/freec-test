@@ -2,55 +2,51 @@ import Head from 'next/head';
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import styles from '../styles/Contact.module.scss';
-import Header from '../components/Header';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapPin, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function Contact(props) {
 
     return (
         <div>
-            <Header />
             <Head>
                 <title>FreeC Test - Contact Us</title>
-                <link rel="icon" href="/favicon.ico" />
             </Head>
+
             <div className="section">
                 <Container>
                     <div className="get-in-touch">
                         <div className={styles.contactContent}>
                             <h2 className="title-2-underline-center">Get In Touch</h2>
                             <p>
-                                Our multi-lingual sales team and technical experts are on hand to support you with
-                                your cable projects,<br />
-                                from specification through to installation. Please use the contact details below to
-                                get in touch.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ex et nisi malesuada faucibus. Aliquam est quam, varius in tincidunt sed, sollicitudin ut lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam in sem non justo mollis commodo non ut massa.
                             </p>
                             <Row className={styles.contactInfoList + ' justify-content-center'}>
                                 <Col lg={4} md={6} className="sp-col">
                                     <div className={styles.contactInfo}>
+                                        <FontAwesomeIcon icon={faPhone} />
                                         <h4>Call Us</h4>
-                                        <p><a href="tel:+6564404421">(+65) 6440 4421</a></p>
+                                        <p><a href="tel:+2822534031">028-225-34031</a></p>
                                     </div>
                                 </Col>
                                 <Col lg={4} md={6} className="sp-col">
                                     <div className={styles.contactInfo}>
+                                        <FontAwesomeIcon icon={faMapPin} />
                                         <h4>Visit Us</h4>
-                                        <p>The Spire<br />
-                                        #13-04, 10 Bukit Batok Crescent<br />
-                                        Singapore 658079</p>
+                                        <p>No.8 Street 66, Thao Dien, District 2, HCM</p>
                                     </div>
                                 </Col>
                                 <Col lg={4} md={6} className="sp-col">
                                     <div className={styles.contactInfo}>
+                                        <FontAwesomeIcon icon={faEnvelope} />
                                         <h4>Email Us</h4>
-                                        <p><a href="mailto:sales@noksoffshore.com">sales@noksoffshore.com</a></p>
+                                        <p><a href="mailto:info@freec.asia">info@freec.asia</a></p>
                                     </div>
                                 </Col>
                             </Row>
                         </div>
                         <div className={styles.map + ' d-flex'}>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.7300877837947!2d103.75614541519809!3d1.338233199023972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da106e7a363c43%3A0x2898ab12d478c7b4!2s10%20Bukit%20Batok%20Cres%2C%20Singapore%20658079!5e0!3m2!1sen!2s!4v1611656058466!5m2!1sen!2s"
-                                allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3918.9652493772!2d106.7249725!3d10.8139713!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317526213b32706d%3A0x3b686e55732fa5b5!2zOCDEkC4gU-G7kSA2NiwgVGjhuqNvIMSQaeG7gW4sIFF14bqtbiAyLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmg!5e0!3m2!1sen!2s!4v1612717710975!5m2!1sen!2s" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                         </div>
                     </div>
                 </Container>

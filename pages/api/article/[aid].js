@@ -1,5 +1,6 @@
-export default (req, res) => {
-    res.status(200).json([
+export default async (req, res) => {
+    const { aid } = req.query;
+    let articleList = [
         {
             "id": "1",
             "title": "Article 1",
@@ -180,5 +181,11 @@ export default (req, res) => {
             "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec finibus imperdiet finibus. Integer scelerisque vitae purus vel posuere. Etiam aliquet lectus vitae leo viverra, a pretium lorem posuere.",
             "status": true
         }
-    ])
+    ];
+
+    const data = articleList.filter((item) => {
+        return item.id == aid;
+    });
+
+    res.status(200).json(data[0])
 }

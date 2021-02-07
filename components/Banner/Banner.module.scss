@@ -1,0 +1,18 @@
+@import "../../styles/varible.scss";
+
+.banner{
+    &Image{
+        width:100%;
+    }
+    &Caption{
+        color:$black1;
+        @include maxmedia(767px){
+            position: relative;
+            left:auto;
+            right:auto;
+            bottom:auto;
+            padding:50px 15px;
+            background: #d9d9d9;
+        }
+    }
+}

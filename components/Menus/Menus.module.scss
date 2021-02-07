@@ -1,0 +1,16 @@
+@import '../../styles/varible.scss';
+.header{
+    &Menu{
+        &Navbar{
+            @include minmedia(768px){
+                padding:0;
+            }
+             &Link{
+                padding:15px !important;
+                &_active{
+                    background: $primary;
+                }
+            }
+        }
+    }
+}

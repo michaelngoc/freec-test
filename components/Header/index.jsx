@@ -41,8 +41,8 @@ function Header(props) {
                 <div className={styles.headerLogo + " d-flex justify-content-center"}>
                     <a href="/"><Image src="/images/freec-logo-blue.png" roundedCircle /></a>
                 </div>
-                <Menus menusList={menusList} />
             </Container>
+            <Menus menusList={menusList} />
         </div>
     );
 }

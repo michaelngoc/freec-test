@@ -1,0 +1,100 @@
+@import '../../styles/varible.scss';
+.pageFooter {
+    position: relative;
+    background: $black1;
+    color: #BCBCBC;
+}
+
+.ftMain {
+    position: relative;
+    z-index: 1;
+    padding: 50px 0;
+
+    &Content {
+        padding: 50px 0;
+
+        .row {
+            margin: 0 -20px;
+
+            &>div {
+                padding: 0 20px;
+            }
+        }
+    }
+}
+
+.ftLogo {
+    margin: 15px 0;
+    text-align: center;
+
+    @include maxmedia(991px) {
+        margin-bottom: 30px;
+    }
+}
+
+.ftWrap {
+    h4 {
+        font-size: 20px;
+        font-weight: 700;
+        color: $white;
+        margin: 15px 0 20px;
+        text-transform: uppercase;
+        letter-spacing: 0.2px;
+
+        &~h4 {
+            margin-top: 45px;
+        }
+    }
+}
+.ftInfo {
+    position: relative;
+    padding-left: 30px;
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 10px;
+
+    i,svg {
+        position: absolute;
+        top: 3px;
+        left: 0;
+        color: $second;
+        max-width:15px;
+        max-height: 13px;
+    }
+
+    a {
+        color: #BCBCBC !important;
+
+        &:hover {
+            color: $primary !important;
+        }
+    }
+}
+
+.ftBot {
+    padding: 12px 0;
+    text-align: center;
+    border-top: 1px solid #2C2C2C;
+
+    a {
+        img {
+            margin-left: 8px;
+        }
+    }
+
+    p {
+        margin: 0;
+
+        a {
+            color: #BCBCBC;
+
+            &:hover {
+                color: $primary;
+            }
+
+            img {
+                margin-left: 5px;
+            }
+        }
+    }
+}

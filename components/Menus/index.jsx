@@ -1,7 +1,8 @@
 import React from 'react';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
+import styles from './Menus.module.scss';
 
 Menu.propTypes = {
     menusList: PropTypes.array,
@@ -35,11 +36,11 @@ function Menu(props) {
 
                 if (asPath === menu.alias) {
                     return (
-                        <Nav.Link key={index} href={menu.alias} className="active">{menu.name}</Nav.Link>
+                        <Nav.Link key={index} href={menu.alias} className={`${styles.headerMenuNavbarLink} ${styles.headerMenuNavbarLink_active} active`}>{menu.name}</Nav.Link>
                     )
                 } else {
                     return (
-                        <Nav.Link key={index} href={menu.alias}>{menu.name}</Nav.Link>
+                        <Nav.Link key={index} href={menu.alias} className={styles.headerMenuNavbarLink}>{menu.name}</Nav.Link>
                     )
                 }
 
@@ -49,13 +50,15 @@ function Menu(props) {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="mr-auto ml-auto">
-                    {showMenus(menusList)}
-                </Nav>
-            </Navbar.Collapse>
+        <Navbar className={styles.headerMenuNavbar} collapseOnSelect expand="md" bg="dark" variant="dark">
+            <Container>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mr-auto ml-auto">
+                        {showMenus(menusList)}
+                    </Nav>
+                </Navbar.Collapse>
+            </Container>
         </Navbar>
     );
 }

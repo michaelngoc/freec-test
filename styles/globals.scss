@@ -15,3 +15,124 @@ body {
     padding:80px 0;
   }
 }
+
+img{
+  max-width: 100%;
+}
+.sort {
+  &-wrap {
+      margin-bottom: 30px;
+      padding: 10px 25px;
+      background: #F5F5F5;
+
+      .pagination {
+          @include maxmedia(991px) {
+              margin-top: 15px;
+          }
+      }
+  }
+
+  &-item {
+      @include maxmedia(575px) {
+          width: 100%;
+          margin-bottom: 10px;
+      }
+
+      &>div {
+          padding: 8px 20px;
+          background: $white;
+          margin-right: 10px;
+          @include border-radius(20px);
+      }
+
+      color:#6E6E6E;
+
+      @include maxmedia(575px) {
+          width: 100%;
+      }
+
+      select {
+          padding: 0 25px 0 5px;
+          border: 0 !important;
+          color: #6E6E6E !important;
+          font-weight: 400;
+          box-shadow: none !important;
+          outline: none !important;
+
+          &:after {
+              right: 0;
+              border-color: #6E6E6E;
+          }
+
+          .option {
+              padding: 0 10px;
+          }
+      }
+  }
+}
+
+.pagination {
+  @include maxmedia(575px) {
+      width: 100%;
+  }
+
+  &-wrap {
+      padding: 10px 25px;
+      background: #F5F5F5;
+
+      .sort-box {
+          @include maxmedia(575px) {
+              width: 100%;
+          }
+      }
+  }
+
+  padding: 0;
+  margin: 0 -2px;
+  @include resetlist;
+
+  li {
+      font-size: 14px;
+      font-weight: 400;
+      margin: 0 2px;
+
+      a,
+      span {
+          border: none;
+          display: block;
+          color: #6E6E6E;
+          width: 20px;
+          height: 20px;
+          padding: 0;
+          line-height: 20px;
+          text-align: center;
+          @include border-radius(100%);
+          @include transition(0.3s);
+
+          svg{
+            position: relative;
+            top:-2px;
+            height:20px;
+          }
+
+          &:hover {
+              color: $primary;
+              text-decoration: none;
+          }
+
+          &.active {
+              background: $second;
+              color: $white;
+          }
+      }
+
+      &.active {
+
+          a,
+          span {
+              background: $second;
+              color: $white;
+          }
+      }
+  }
+}

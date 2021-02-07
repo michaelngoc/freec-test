@@ -1,42 +1,25 @@
 @import './varible.scss';
 .contact{
     &Content {
-        padding: 60px 15px;
+        margin: 60px 15px;
         text-align: center;
     }
     &Info {
         &List {
             margin-top: 40px;
-    
-            .sp-col {
-                &+.sp-col {
-                    border-left: 1px solid #E3E3E3;
-    
-                    @include maxmedia(991px) {
-                        &:last-child {
-                            border-left: 0;
-                            border-top: 1px solid #E3E3E3;
-                            padding-top: 30px;
-                        }
-                    }
-    
-                    @include maxmedia(767px) {
-                        border-left: 0;
-                        border-top: 1px solid #E3E3E3;
-                        padding-top: 30px;
-                    }
-                }
-    
-                @include maxmedia(991px) {
-                    margin-top: 30px;
-                }
-            }
+        }
+
+        margin-bottom: 30px;
+
+        svg{
+            height:50px;
+            color:$primary;
         }
     
         h4 {
             font-size: 20px;
             font-weight: 700;
-            margin: 20px 0;
+            margin: 30px 0 15px;
             color: $black1;
         }
     
