@@ -9,12 +9,20 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 function Home() {
     const [articleList, setArticleList] = useState([]);
     const [bannerList, setBannerList] = useState([]);
+    const [sortBy, setSortBy] = useState(0);
+    const [showItem, setShowItem] = useState(9);
+    const [pagination, setPagination] = useState({
+        _page: 1,
+        _limit: sortBy,
+        _totalPages: 1,
+    });
 
     const getArticleApi = async () => {
         try {
             const response = await fetch('http://localhost:3000/api/article', { method: 'GET' });
             const responseJson = await response.json();
             setArticleList(responseJson);
+            setPagination({ ...pagination, _totalPages: (responseJson.length / pagination._limit) });
         } catch (error) {
             console.log('Failed to fetch Article list: ', error);
         }
@@ -37,17 +45,60 @@ function Home() {
 
     function handleSortBy(e) {
         const sortBy = e.target.value;
-        if (sortBy == 1) {
-            const tempt = articleList;
-            tempt.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-            setArticleList(tempt);
-            console.log(articleList);
+        setSortBy(sortBy);
+        let tempt = [];
+
+        if (sortBy == 0) {
+            getArticleApi();
+        } else if (sortBy == 1) {
+            tempt = articleList.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+        } else if (sortBy == 2) {
+            tempt = articleList.sort((a, b) => a.title.localeCompare(b.title));
         }
+
+        setArticleList(tempt);
+    }
+
+    function handleShow(e) {
+        const showValue = e.target.value;
+        setShowItem(showValue);
+        let tempt = [];
+
+        if (showValue == 9) {
+            getArticleApi();
+        } else if (showValue == 1) {
+            //tempt = articleList.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+        } else if (showValue == 2) {
+            //tempt = articleList.sort((a, b) => a.title.localeCompare(b.title));
+        }
+
+        //setArticleList(tempt);
+    }
+
+    function showPagination() {
+        var result = null;
+        if (pagination._totalPages.length > 0) {
+            result = Articles.map((item, index) => {
+                if (item) {
+                    return (
+                        <li className="active">
+                            <a href="#">2</a>
+                        </li>
+                    )
+                } else {
+                    return (
+                        <li>
+                            <a href="#">2</a>
+                        </li>
+                    )
+                }
+            });
+        }
+        return result;
     }
 
     return (
         <main>
-            {console.log(articleList)}
             <Banner items={bannerList} />
             <div className="section">
                 <Container>
@@ -56,20 +107,20 @@ function Home() {
                             <div className="sort-item d-flex align-items-center">
                                 <div className="d-flex align-items-center">
                                     <span>Sort by </span>
-                                    <select onChange={handleSortBy} defaultValue="0">
+                                    <select onChange={handleSortBy} defaultValue={sortBy}>
                                         <option value="0">Default</option>
                                         <option value="1">Publish date</option>
+                                        <option value="2">Title</option>
                                     </select>
                                 </div>
                             </div>
                             <div className="sort-item d-flex align-items-center">
                                 <div className="d-flex align-items-center">
                                     <span>Show </span>
-                                    <select defaultValue="12">
+                                    <select onChange={handleShow} defaultValue={showItem}>
+                                        <option value="9">9</option>
                                         <option value="12">12</option>
                                         <option value="24">24</option>
-                                        <option value="36">36</option>
-                                        <option value="48">48</option>
                                     </select>
                                 </div>
                                 <span>out of 40 results</span>
@@ -79,6 +130,7 @@ function Home() {
                             <li className="icon">
                                 <a href="#"><FontAwesomeIcon icon={faAngleLeft} /></a>
                             </li>
+                            {/* {showPagination} */}
                             <li className="active">
                                 <a href="#">1</a>
                             </li>
@@ -99,11 +151,10 @@ function Home() {
                             <div className="sort-item d-flex align-items-center">
                                 <div className="d-flex align-items-center">
                                     <span>Show </span>
-                                    <select defaultValue="12">
+                                    <select onChange={handleShow} defaultValue={showItem}>
+                                        <option value="9">9</option>
                                         <option value="12">12</option>
                                         <option value="24">24</option>
-                                        <option value="36">36</option>
-                                        <option value="48">48</option>
                                     </select>
                                 </div>
                                 <span>out of 40 results</span>
